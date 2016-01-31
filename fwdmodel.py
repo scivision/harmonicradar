@@ -21,5 +21,11 @@ def noisepower(nf,bw):
     k=1.38064852e-23
     T=290 #[K] by convention
 
-  
-    return 10*log10(k*T*bw) + nf  #[dBm] DSB
+    Pthermal = 10*log10(k*T*bw)+30 #+30 for dBW to dBm
+
+    return  Pthermal + nf  #[dBm] DSB
+
+if __name__ == '__main__':
+#demo
+    print(noisepower(8,25e3))
+    print(friis(1e3,144e6))
