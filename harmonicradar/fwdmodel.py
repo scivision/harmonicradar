@@ -1,14 +1,10 @@
 from numpy import pi,log10
+from numpy.testing import assert_allclose
+#
+from tincanradar.fwdmodel import friis
 
-LIGHTSPEED=299792458 #[m/s]
+c=299792458 #[m/s]
 
-def friis(dist_m,freq_hz):
-    """
-    free space path loss [dB]
-    dist_m: Distance between radar and tag in meters (one-way)
-    freq: carrier frequency of the radar in Hz
-    """
-    return 20*log10(4*pi * dist_m * freq_hz / LIGHTSPEED) #[dB]
 
 def noisepower(nf,bw):
 
@@ -23,9 +19,8 @@ def noisepower(nf,bw):
 
     Pthermal = 10*log10(k*T*bw)+30 #+30 for dBW to dBm
 
-    return  Pthermal + nf  #[dBm] DSB
+    return Pthermal + nf  #[dBm] DSB
 
 if __name__ == '__main__':
-#demo
-    print(noisepower(8,25e3))
-    print(friis(1e3,144e6))
+    assert_allclose(noisepower(8,25e3),-121.995788617)
+    assert_allclose(friis(1e3,144e6), 75.6150330638)
