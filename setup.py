@@ -14,7 +14,7 @@ setup(name='harmonicradar',
 	  author='Michael Hirsch',
 	  url='https://github.com/scivision/harmonicradar',
    install_requires=['tincanradar'],
-     dependency_links = ['https://github.com/scienceopen/tincanradar/tarball/master#egg=tincanradar'],
+     dependency_links = ['https://github.com/scivision/tincanradar/tarball/master#egg=tincanradar'],
       packages=['harmonicradar'],
 	  )
 
