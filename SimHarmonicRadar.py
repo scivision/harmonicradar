@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 from numpy import pi,arange,int16,isclose,cos,sin,log10,asarray,linspace,degrees
 from numpy.fft import fft
 from scipy.constants import c

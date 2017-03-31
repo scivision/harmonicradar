@@ -7,7 +7,6 @@ c=299792458 #[m/s]
 
 
 def noisepower(nf,bw):
-
     """
     Compute noise power for receiver in dBm
     Note: we are talking power not PSD.
@@ -21,6 +20,3 @@ def noisepower(nf,bw):
 
     return Pthermal + nf  #[dBm] DSB
 
-if __name__ == '__main__':
-    assert_allclose(noisepower(8,25e3),-121.995788617)
-    assert_allclose(friis(1e3,144e6), 75.6150330638)
