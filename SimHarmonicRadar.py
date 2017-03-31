@@ -130,7 +130,7 @@ def sounds(x):
     if smod is not None:
         smod.mixer.pre_init(int(scfs), size=-16, channels=1)
         smod.mixer.init()
-        sound = smod.sndarray.make_sound((x*32768/8).astype('int16'))
+        sound = smod.sndarray.make_sound((x*32768/8).real.astype('int16'))
         sound.play(loops=0)
         if not np.isclose(sound.get_volume(),1.):
             print('pygame volume level:',sound.get_volume())
