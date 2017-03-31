@@ -21,11 +21,9 @@ x = np.cos(2*np.pi*fc*t)
 x[x<0] = 0. 
 
 #%% plots
-
-if 0:
-    ax=figure().gca()
-    ax.plot(t,x)
-    ax.set_xlabel('time [sec.]')
+ax=figure().gca()
+ax.plot(t[:200],x[:200])
+ax.set_xlabel('time [sec.]')
 
 f,Pxx = welch(x,fs,nperseg=1000000)
 
@@ -35,3 +33,4 @@ ax.set_xlabel('frequency [Hz]')
 ax.set_ylabel('amplitude [dB]')
 ax.set_ylim(-130,-100)
 
+show()
