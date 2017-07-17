@@ -1,7 +1,11 @@
 language: python
 
 python:
-    - 3.6
+  - 3.6
+  - 3.5
+
+os:
+  - linux
 
 notifications:
   email: false
@@ -22,9 +26,9 @@ before_install:
     - ln -fs /usr/bin/gfortran-5 "$HOME/.local/bin/gfortran" && gfortran --version
 
     - if [[ $TRAVIS_OS_NAME == osx ]]; then
-        wget http://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh;
+        wget http://repo.continuum.io/miniconda/Miniconda-latest-MacOSX-x86_64.sh -O miniconda.sh;
       else 
-        wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+        wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh;
       fi
 
     - bash miniconda.sh -b -p $HOME/miniconda
@@ -37,9 +41,9 @@ install:
     - conda create -n test python=$TRAVIS_PYTHON_VERSION
     - source activate test
     - pip -q install coveralls
-    - conda install numpy scipy matplotlib seaborn
+
     - python setup.py develop
 
-script: coverage run tests/test.py
+script: coverage run tests/test.py -v
 
 after_success: coveralls

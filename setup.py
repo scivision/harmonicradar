@@ -1,10 +1,19 @@
 #!/usr/bin/env python
-from setuptools import setup #enables develop
 
-req = ['numpy','matplotlib','scipy','seaborn','pygame',
-       'tincanradar']
+req = ['numpy','matplotlib','scipy','seaborn']
+pipreq=['pygame','tincanradar']
+
+import pip
+try:
+    import conda.cli
+    conda.cli.main('install',*req)
+except Exception as e:
+    pip.main(['install'] + req)
+pip.main(['install'] + pipreq)
 
 #%% install
+from setuptools import setup #enables develop
+
 setup(name='harmonicradar',
       version='0.1',
 	  description='Detect targets in very cluttered zones by listening to non-linear junction-generated harmonic',

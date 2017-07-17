@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-from numpy.testing import run_module_suite
+from numpy.testing import run_module_suite,assert_allclose
 #
-from harmonicradar import noisepower
+from harmonicradar import noisepower,friis
 
 def test_fwdmodel():
     assert_allclose(noisepower(8,25e3),-121.995788617)
