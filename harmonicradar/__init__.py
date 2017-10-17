@@ -1,7 +1,11 @@
 import numpy as np
 import scipy.signal as signal
 #
-from .plots import plots, plotlf, plotif
+try:
+    from .plots import plots, plotlf, plotif
+except (RuntimeError,ImportError):
+    plots=None
+    
 from tincanradar.fwdmodel import chirprx,friis
 
 c=299792458 #[m/s]
@@ -46,8 +50,9 @@ def harmonicradar_cw(t,fs,fc):
     #y = x; y[y<0]=0. #shorthand way to say it, same result
     fax,Pyy = signal.periodogram(rx,fs)
 #%% results
-    plotlf(t,tx,d,rx,ttxt)
-    plots(fax,Pxx,Pyy,fc,ttxt)
+    if plots is not None:
+        plotlf(t,tx,d,rx,ttxt)
+        plots(fax,Pxx,Pyy,fc,ttxt)
 
     return rx
 
@@ -63,7 +68,8 @@ def harmonicradar_fmcw(t,fs,P,range_m,scfs):
     f,Pxx = signal.welch(tx,fs,return_onesided=False)
     f,Pyy = signal.welch(bx,fs,return_onesided=False)
 
-    plots(f,Pxx,Pyy,None,ttxt)
+    if plots is not None:
+        plots(f,Pxx,Pyy,None,ttxt)
 #%% radar received waveform (homodyne)
     rx = bx * tx.conjugate() # tag transmit waveform
 #%% antialias filter & resample
@@ -72,7 +78,8 @@ def harmonicradar_fmcw(t,fs,P,range_m,scfs):
     rxf,tr = signal.resample(rxf,int(rxf.size * scfs / fs),t)
     f,Pzz = signal.welch(rxf,scfs,detrend=False,return_onesided=False)
 
-    plotif(tr,rxf,f,Pzz)
+    if plots is not None:
+        plotif(tr,rxf,f,Pzz)
 
     return rxf
 
