@@ -4,8 +4,9 @@ os:
   - linux
   - osx
   
-env: TRAVIS_PYTHON_VERSION=3.6  FC=gfortran-6
+env: TRAVIS_PYTHON_VERSION=3.6  FC=gfortran
 
+sudo: true
 dist: trusty
 group: edge
 
@@ -22,12 +23,16 @@ addons:
     packages:
       - gfortran-6
       - liblapack-dev
+      - libfftw3-dev
 
 before_install:
     - if [[ $TRAVIS_OS_NAME == osx ]]; then
         wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh;
+        brew update;
+        brew install gcc;
       else
         wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+        sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-6 60;
       fi
 
     - bash miniconda.sh -b -p $HOME/miniconda
