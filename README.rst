@@ -27,3 +27,9 @@ I certainly have fancier things to show if you'd like to discuss offline....
 
 * ``Sim917.py`` a simple look at the harmonic output of an ideal diode
 * ``SimHarmonicRadar.py`` forward model of CW and FMCW (chirp) harmonic radar
+
+
+Notes
+=====
+To manually compile Pygame: Linux: ``apt install libsdl2-dev``
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 req = ['numpy','matplotlib','scipy','seaborn']
-pipreq=['pygame','tincanradar']
-
+pipreq=['tincanradar']
+extreq=['pygame']
 import pip
 try:
     import conda.cli
@@ -21,6 +21,7 @@ setup(name='harmonicradar',
 	  author='Michael Hirsch, Ph.D.',
 	  url='https://github.com/scivision/harmonicradar',
       install_requires=req+pipreq,
+      extras_require={'pygame':['pygame']},
       dependency_links = ['https://github.com/scivision/tincanradar/tarball/master#egg=tincanradar'],
 	  )
 
