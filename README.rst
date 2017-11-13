@@ -7,17 +7,11 @@ Let me know if you'd like to see more.
 
 .. contents::
 
-Prereqs
-=======
-Pygame (optional) for playing the baseband radar signals audibly, to help user gain intuition::
-
-    pip install pygame
-
 Install
 =======
-Install ``pygame`` first so that it uses the easy ``.whl`` install::
+::
 
-    python setup.py develop
+    pip install -e .
 
 
 Harmonic Radar Simulations
