@@ -27,7 +27,7 @@ addons:
 before_install:
     - pip -q install coveralls
 
-install: pip install -e .
+install: pip install -e . --process-dependency-links
 
 script: coverage run tests/test.py -v
 
