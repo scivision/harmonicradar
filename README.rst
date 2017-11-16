@@ -21,7 +21,8 @@ Install
 =======
 ::
 
-    pip install -e .
+    pip install -e . --process-dependency-links
+
 
 
 Harmonic Radar Simulations

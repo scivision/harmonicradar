@@ -12,7 +12,7 @@ setup(name='harmonicradar',
 	  url='https://github.com/scivision/harmonicradar',
       install_requires=req,
       python_requires='>=3.6',
-      extras_require={'plot':['matplotlib','seaborn'],'io':['pygame']}
-      dependency_links = ['https://github.com/scivision/tincanradar/tarball/master#egg=tincanradar'],
+      extras_require={'plot':['matplotlib','seaborn'],'io':['pygame']},
+      dependency_links = ['https://github.com/scivision/tincanradar/tarball/master#egg=tincanradar-999'],
 	  )
 
