@@ -2,10 +2,10 @@
 req = ['numpy','scipy',
        'tincanradar',]
 #%% install
-from setuptools import setup #enables develop
+from setuptools import setup,find_packages
 
 setup(name='harmonicradar',
-      packages=['harmonicradar'],
+      packages=find_packages(),
       version='0.1',
 	  description='Detect targets in very cluttered zones by listening to non-linear junction-generated harmonic',
 	  author='Michael Hirsch, Ph.D.',
