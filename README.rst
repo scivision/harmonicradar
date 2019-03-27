@@ -11,7 +11,8 @@
 ==============
 Harmonic Radar
 ==============
-Code for modeling, simulating, processing [harmonic radar](https://www.scivision.co/harmonic-radar) data.
+Code for modeling, simulating, processing 
+`harmonic radar <https://www.scivision.co/harmonic-radar>` data.
 
 Let us know if you'd like to see more.
 
