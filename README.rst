@@ -1,16 +1,7 @@
-.. image:: https://travis-ci.org/scivision/harmonicradar.svg?branch=master
-    :target: https://travis-ci.org/scivision/harmonicradar
-
-.. image:: https://coveralls.io/repos/github/scivision/harmonicradar/badge.svg?branch=master
-    :target: https://coveralls.io/github/scivision/harmonicradar?branch=master
-
-.. image:: https://api.codeclimate.com/v1/badges/b9ee155d0a9f388d8d1f/maintainability
-   :target: https://codeclimate.com/github/scivision/harmonicradar/maintainability
-   :alt: Maintainability
-
 ==============
 Harmonic Radar
 ==============
+
 Code for modeling, simulating, processing 
 `harmonic radar <https://www.scivision.dev/harmonic-radar>`_ data.
 
